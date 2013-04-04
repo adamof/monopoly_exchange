@@ -1,5 +1,4 @@
 class CardTypesController < ApplicationController
-<<<<<<< HEAD
 	before_filter :find_model
 	
 	def index
@@ -13,12 +12,7 @@ class CardTypesController < ApplicationController
 	def find_model
 		@model = CardTypes.find(params[:id]) if params[:id]
 	end
-  before_filter :get_cards
-
-  
-  def index
-    @cards = CardType.all
-  end
+  # before_filter :get_cards
 
   def post_cards
     @card_types.each do |card_type|
