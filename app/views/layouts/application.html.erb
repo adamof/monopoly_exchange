@@ -5,19 +5,40 @@
   <%= stylesheet_link_tag    "bootstrap.min", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "bootstrap.min" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<div class="container">
-		<div class="pagination" align="center">
-		  <ul>
-		    <li><a href="/">Search stickers</a></li>
-		    <li><a href="#">Add sticker</a></li>
-		  </ul>
-		</div>
+<body style="margin-top: 20px">
+    <div class="container">
+		<center>
+    	<div class="row">
+    		<%= image_tag("new1.png", class: 'img-rounded') %>
+    	</div>
+    <!-- Button to trigger modal -->
+    	<div class="row" style="margin-bottom: 15px">
+				<a href="#myModal" role="button" class="btn btn-large btn-" data-toggle="modal">How it works?</a>
+			</div>
+			<!-- Modal -->
+			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			    <h3 id="myModalLabel">How Monopoly Exchange works..</h3>
+			  </div>
+			  <div class="modal-body">
+			    <p>You are missing that one sticker to win the prize, but you have two of the same type that you don't need? <strong>Don't worry!</strong></p>
+			    <p>Using Monopoly Exchange you have <strong>two</strong> options:</p>
+			    <ol>
+			    	<li><strong>You can list your stickers</strong> - Using the checkboxes, select the stickers that you have, but don't need anymore. Then enter your e-mail in the field below and click "Add stickers". This will add your e-mail and your stickers to our databse, so whoever needs the stickers you have listed will receive your e-mail and contact you. What happens after that depends on you!</li>
+			    	<li><strong>You can search for stickers</strong> - Again, using the checkboxes, select the stickers that you need. Then enter your e-mail in the field below and click "Search stickers". This will send a notification to all people who have the stickers that you need and so they will be able to contact you. What happens after that depends on you!</li>
+			    </ol>
+			    <p> We <strong>cannot</strong> guarantee that you will get the stickers you need, but at least we can try and match you with the person who has them! </p>
+
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn" data-dismiss="modal" aria-hidden="true">Got it!</button>
+			  </div>
+			</div>
+		</center>
 		<%= yield %>
 	</div>
-
 </body>
 </html>

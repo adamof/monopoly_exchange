@@ -11,3 +11,48 @@
  *= require_self
  *= require_tree .
  */
+
+#round-corners {
+	/* well its a common sense that
+	  if you want to create square your
+	  height and width must be equal */
+
+	height: 50px;
+	width: 200px;
+	
+
+	/* In this example i will show you
+	 another way of styling border. */
+
+	border-width: 2px;
+	border-style: solid;
+	border-color: black; /* or hex color code #000000 */
+
+	/* Round the corners */
+
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+.wrapper {
+background-image: linear-gradient(bottom, rgb(135,132,135) 15%, rgb(207,209,209) 57%);
+background-image: -o-linear-gradient(bottom, rgb(135,132,135) 15%, rgb(207,209,209) 57%);
+background-image: -moz-linear-gradient(bottom, rgb(135,132,135) 15%, rgb(207,209,209) 57%);
+background-image: -webkit-linear-gradient(bottom, rgb(135,132,135) 15%, rgb(207,209,209) 57%);
+background-image: -ms-linear-gradient(bottom, rgb(135,132,135) 15%, rgb(207,209,209) 57%);
+background-position:bottom;
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.15, rgb(135,132,135)),
+	color-stop(0.57, rgb(207,209,209))
+);
+}
+
+#body-wrapper {
+		height: 100%;
+    width: 100%;
+}

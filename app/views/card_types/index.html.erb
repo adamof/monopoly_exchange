@@ -1,3 +1,28 @@
-<% @cards.each do |card| %>
-	<button type="button" class="btn btn-primary" data-toggle="button"> <%= card.name %> </button>
-<% end -%>
+<div class="row">
+	<div class="span10 offset1">
+		<% @cards.each do |color,entries| %>
+			<div class="span3">
+				<div id="round-corners" style="background-color: #<%= CardType::COLOURS[color] %>;">
+					</div>
+					<div class="btn-group" data-toggle="buttons-checkbox">
+					<% entries.each do |entry| %>
+				    <label class="checkbox">
+							<input type="checkbox"> <%= entry.name %>
+						</label>
+					<% end -%>
+				</div>
+			</div>
+		<% end -%>
+	</div>
+</div>
+<div class="row" align="center">
+	<input type="text" placeholder="Type your e-mail...">
+</div>
+<div class="row">
+	<div class="pagination" align="center">
+			  <ul>
+			    <li><a href="/">Search stickers</a></li>
+			    <li><a href="#">Add sticker</a></li>
+			  </ul>
+	</div>
+</div>
