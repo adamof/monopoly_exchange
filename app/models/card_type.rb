@@ -11,4 +11,7 @@ class CardType < ActiveRecord::Base
 		'Darkblue' => '1a64a3',
 		'Black' => '1f282e'
 	}
+  def print_name
+    "#{color} - #{name}"
+  end
 end
