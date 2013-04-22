@@ -13,3 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $(".button").on("click", function() {
+    var selected = new Array();
+    $('input:checked').each(function() {
+      selected.push($(this).attr('name'));
+    });
+    var route = "";
+    if($(this).attr("id")=="search_button"){
+      route = "/search"
+    }else{
+      route = "/add"
+    }
+    $.post(route, {"cards":selected}, function (data) {
+      if(data=="true"){
+        console.log("success");
+      }else{
+        console.log("error");
+      }
+    })
+  })
+});

@@ -50,6 +50,8 @@ MonopolyExchange::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'card_types#index'
+  post "search" => 'card_types#find_cards'
+  post "add" => 'card_types#post_cards'
 
   # See how all your routes lay out with "rake routes"
 

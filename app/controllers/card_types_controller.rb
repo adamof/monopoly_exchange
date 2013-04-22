@@ -1,18 +1,10 @@
 class CardTypesController < ApplicationController
-	before_filter :find_model
+	before_filter :get_cards
 	
 	def index
 		@cards = CardType.all.group_by{|r| r.color}
 
 	end
-
-	
-
-	# private
-	def find_model
-		@model = CardTypes.find(params[:id]) if params[:id]
-	end
-  # before_filter :get_cards
 
   def post_cards
     @card_types.each do |card_type|
@@ -22,14 +14,19 @@ class CardTypesController < ApplicationController
 
   def find_cards
     @card_types.each do |card_type|
-      p card_type.name
+      p card_type
     end
+    success = true
+    render text: success.to_s
   end 
 
   private
-
   def get_cards
     @card_types = params[:cards]
+  end
+
+  def find_model
+    @model = CardTypes.find(params[:id]) if params[:id]
   end
 
 end
