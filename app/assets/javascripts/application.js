@@ -26,7 +26,7 @@ $(function() {
     }else{
       route = "/add"
     }
-    $.post(route, {"cards":selected}, function (data) {
+    $.post(route, {"cards":selected, "email":$("#email").val()}, function (data) {
       if(data=="true"){
         console.log("success");
       }else{

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hi</h1>
+    <p>
+      <%= @sender %> has requested the following cards:</br>
+      <ul>
+        <% @cards.each do |card| %>
+          <li><%= "#{card.card_type.print_name}" %></li>
+        <% end %>
+      </ul>
+      You can just respond to this message to email the person with an offer.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

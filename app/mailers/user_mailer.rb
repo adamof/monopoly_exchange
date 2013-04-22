@@ -5,4 +5,9 @@ class UserMailer < ActionMailer::Base
     @cards = cards
     mail(:to => email, :subject => "Monopoly Exchange | You have successfully added #{cards.count} stickers")
   end
+  def search_email(sender, receiver, cards)
+    @sender = sender
+    @cards = cards
+    mail(:to => receiver, :subject => "Monopoly Exchange | You have stickers request.", :reply_to => sender)
+  end
 end

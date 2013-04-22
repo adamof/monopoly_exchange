@@ -7,17 +7,34 @@ class CardTypesController < ApplicationController
 	end
 
   def post_cards
+    existing = []
+    cards = []
     @card_types.each do |card_type|
-      Card.create(email: params[:cards], card_type: card_type)
+      card = Card.new
+      card.email = params[:email]
+      card.card_type_id = card_type
+      cards << card
+      unless card.save
+        existing << CardType.find(card_type).name
+      end
     end
-  end 
+    if existing.empty?
+      UserMailer.welcome_email(params[:email], cards).deliver
+      render text: "true"
+    else
+      render text: existing.join(", ")
+    end
+  end
 
   def find_cards
-    @card_types.each do |card_type|
-      p card_type
+    emails = Card.find_all_by_id(@card_types).group_by(&:email)
+    p emails
+    emails.each do |email, cards|
+      p email
+      p cards
+      UserMailer.search_email(params[:email], email, cards).deliver
     end
-    success = true
-    render text: success.to_s
+    render text: "true"
   end 
 
   private
