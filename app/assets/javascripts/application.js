@@ -16,22 +16,29 @@
 
 $(function() {
   $(".button").on("click", function() {
-    var selected = new Array();
-    $('input:checked').each(function() {
-      selected.push($(this).attr('name'));
-    });
-    var route = "";
-    if($(this).attr("id")=="search_button"){
-      route = "/search"
-    }else{
-      route = "/add"
+    if(document.getElementById("email").value == "") {
+      alert("Please provide a valid email!")
+      return false;
     }
-    $.post(route, {"cards":selected}, function (data) {
-      if(data=="true"){
-        console.log("success");
+    else {
+      var selected = new Array();
+      $('input:checked').each(function() {
+        selected.push($(this).attr('name'));
+      });
+      var route = "";
+      if($(this).attr("id")=="search_button"){
+        route = "/search"
       }else{
-        console.log("error");
+        route = "/add"
       }
-    })
+      $.post(route, {"cards":selected}, function (data) {
+        if(data=="true"){
+          console.log("success");
+          $('#success').modal('show');
+        }else{
+          console.log("error");
+        }
+      })
+    }
   })
 });
