@@ -27,7 +27,7 @@ class CardTypesController < ApplicationController
   end
 
   def find_cards
-    emails = Card.find_all_by_id(@card_types).group_by(&:email)
+    emails = Card.find_all_by_card_type_id(@card_types).group_by(&:email)
     p emails
     emails.each do |email, cards|
       p email
