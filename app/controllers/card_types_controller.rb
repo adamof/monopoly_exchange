@@ -12,17 +12,18 @@ class CardTypesController < ApplicationController
       card = Card.new
       card.email = params[:email]
       card.card_type_id = card_type
-      cards << card
-      unless card.save
+      if card.save
+        cards << card
+      else
         existing << CardType.find(card_type).name
       end
     end
-    if existing.empty?
+    # if existing.empty?
       UserMailer.welcome_email(params[:email], cards).deliver
       render text: "true"
-    else
-      render text: existing.join(", ")
-    end
+    # else
+    #   render text: existing.join(", ")
+    # end
   end
 
   def find_cards
@@ -34,7 +35,15 @@ class CardTypesController < ApplicationController
       UserMailer.search_email(params[:email], email, cards).deliver
     end
     render text: "true"
-  end 
+  end
+
+  def remove_card
+    card = Card.find_by_token(params[:token])
+    @card_name = card.card_type.print_name
+    card.destroy
+    render :inline =>
+      "You have successfully removed <%= @card_name %>."
+  end
 
   private
   def get_cards

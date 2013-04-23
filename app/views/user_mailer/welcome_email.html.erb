@@ -9,7 +9,7 @@
       You have successfully added the following stickers:</br>
       <ul>
         <% @cards.each do |card| %>
-          <li><%= "#{card.card_type.print_name}" %></li>
+          <li><%= "#{card.card_type.print_name}" %> (<%= link_to "unsubscribe",remove_card_url({token: card.token}) %>)</li>
         <% end %>
       </ul>
     </p>

@@ -9,7 +9,9 @@
       <%= @sender %> has requested the following cards:</br>
       <ul>
         <% @cards.each do |card| %>
-          <li><%= "#{card.card_type.print_name}" %></li>
+          <li>
+            <%= "#{card.card_type.print_name}" %> (<%= link_to "unsubscribe",remove_card_url({token: card.token}) %>)
+          </li>
         <% end %>
       </ul>
       You can just respond to this message to email the person with an offer.

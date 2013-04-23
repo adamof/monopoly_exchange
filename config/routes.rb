@@ -52,6 +52,7 @@ MonopolyExchange::Application.routes.draw do
   root :to => 'card_types#index'
   post "search" => 'card_types#find_cards'
   post "add" => 'card_types#post_cards'
+  get "remove" => 'card_types#remove_card', as: :remove_card
 
   # See how all your routes lay out with "rake routes"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404162802) do
+ActiveRecord::Schema.define(:version => 20130423230824) do
 
   create_table "card_types", :force => true do |t|
     t.string "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130404162802) do
     t.string  "country"
     t.string  "city"
     t.integer "card_type_id"
+    t.string  "token",        :null => false
   end
 
 end
