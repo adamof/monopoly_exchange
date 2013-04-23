@@ -12,5 +12,6 @@ ActionMailer::Base.smtp_settings = {
   :port           => 80,  
   :user_name      => "hi@monopolyexchange.com",
   :password       => "batkan",  
-  :authentication => :plain
+  :authentication => :plain,
+  :enable_starttls_auto => true
 }
