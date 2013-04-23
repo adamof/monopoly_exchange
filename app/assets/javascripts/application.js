@@ -25,6 +25,11 @@ $(function() {
       $('input:checked').each(function() {
         selected.push($(this).attr('name'));
       });
+      console.log(selected.length);
+      if(selected.length == 0) {
+        alert("You haven't selected any stickers!")
+        return false;
+      }
       var route = "";
       if($(this).attr("id")=="search_button"){
         route = "/search"
