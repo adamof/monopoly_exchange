@@ -28,13 +28,17 @@ $(function() {
       var route = "";
       if($(this).attr("id")=="search_button"){
         route = "/search"
+        action = "#success_search"
       }else{
         route = "/add"
+        action = "#success_add"
       }
-      $.post(route, {"cards":selected}, function (data) {
+      $.post( route, 
+              {"cards":selected, "email":$("#email").val()}, 
+              function (data) {
         if(data=="true"){
           console.log("success");
-          $('#success').modal('show');
+          $(action).modal('show');
         }else{
           console.log("error");
         }
