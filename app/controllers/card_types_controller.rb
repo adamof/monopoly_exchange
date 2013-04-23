@@ -3,7 +3,6 @@ class CardTypesController < ApplicationController
 	
 	def index
 		@cards = CardType.all.group_by{|r| r.color}
-
 	end
 
   def post_cards

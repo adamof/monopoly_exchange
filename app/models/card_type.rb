@@ -1,4 +1,5 @@
 class CardType < ActiveRecord::Base
+  has_many :cards
   attr_accessible :name, :color
   COLOURS = {
 		'Brown' => '8e5524',
