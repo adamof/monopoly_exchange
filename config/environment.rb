@@ -7,11 +7,11 @@ MonopolyExchange::Application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.smtp_settings = {  
-  :address        => "smtpout.europe.secureserver.net",  
+  :address        => "smtp.gmail.com",  
   :domain         => "www.monopolyexchange.com",  
-  :port           => 80,  
-  :user_name      => "hi@monopolyexchange.com",
-  :password       => "batkan",  
+  :port           => 587,  
+  :user_name      => "monopolyexchange@gmail.com",
+  :password       => "Monopoly123",  
   :authentication => :plain,
   :enable_starttls_auto => true
 }
